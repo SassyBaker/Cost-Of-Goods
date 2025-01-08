@@ -1,0 +1,8 @@
+You can load data by calling manage.py loaddata <fixturename>, where <fixturename> is the name of the fixture file you’ve created. Each time you run loaddata, the data will be read from the fixture and reloaded into the database. Note this means that if you change one of the rows created by a fixture and then run loaddata again, you’ll wipe out any changes you’ve made.
+Tell Django where to look for fixture files¶
+
+By default, Django looks for fixtures in the fixtures directory inside each app, so the command loaddata sample will find the file my_app/fixtures/sample.json. This works with relative paths as well, so loaddata my_app/sample will find the file my_app/fixtures/my_app/sample.json.
+
+Django also looks for fixtures in the list of directories provided in the FIXTURE_DIRS setting.
+
+To completely prevent default search from happening, use an absolute path to specify the location of your fixture file, e.g. loaddata /path/to/sample.
